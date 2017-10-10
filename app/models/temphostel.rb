@@ -1,0 +1,2 @@
+class Temphostel < ApplicationRecord
+end

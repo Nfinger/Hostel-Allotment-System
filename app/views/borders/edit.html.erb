@@ -1,0 +1,84 @@
+
+
+<!-- navigation bar starts-->
+<!--reapeated code for select roommates.html & studentlogin.html-->
+<nav class="navbar navbar-default navbar-static-top nav-set" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#profilenav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+		<a class="navbar-brand" href="#">STUDENT INFORMATION</a>
+		</div>
+		<div class="collapse navbar-collapse navbar-right" id="profilenav">
+			<ul class="nav navbar-nav nav-tabs">
+				                  
+			    	 <li><%= link_to "Profile",profile_path(current_user.id) %></li>
+         <li><%= link_to "LOGOUT",logout_path ,method: "delete"%></li>
+
+				</ul>
+		</div>
+	</div>
+	
+</nav>
+<!-- navigation bar end-->
+<!-- form start-->
+<div class="panel">
+<div class="jumbotron">
+<div class="container">
+  <div class="row">
+<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+ <div class="panel panel-default">
+		<div class="panel-heading text-center ">
+			<h2 class="panel-title">ADD REST CREDENTIAL DETAILS </h2>
+		</div>
+          <div class="panel-body">
+         	<%= form_for(@border, url: update_path(@border.id)) do |f| %>
+				<div class="form-group">
+           <%= f.label :rollno %>
+          <%= f.text_field :roll_no, class: 'form-control',placeholder:@border.roll_no,disabled: true %>
+    			
+  					
+			</div>
+				
+        <div class="form-group">
+           <%= f.label :Name %>
+          <%= f.text_field :name, class: 'form-control',placeholder:"Name",id:"studentname",required: true%>
+    				
+  					
+			</div>
+			<div class="form-group">
+          <%= f.label :Email %>
+          <%= f.email_field :email, class: 'form-control',placeholder:"enter your email",id:"studentemail",required: true %>
+				
+  			</div>
+  			<div class="form-group">
+            <%= f.label :"Student Phone no" %>
+          <%= f.number_field :phone_no, class: 'form-control',placeholder:"student phone no",id:"studentphoneno",required: true %>
+				</div>
+			 <div class="form-group">
+            <%= f.label :Parent %>
+             <%= f.number_field :parent_phone_no, class: 'form-control',placeholder:"parent phone no",id:"parentphoneno",required: true %>
+        </div>
+         <div class="form-group">
+            <%= f.label :Address %>
+             <%= f.text_field :address, class: 'form-control',placeholder:"Address",id:"address",required: true %>
+        </div>
+  			<button type="submit" class="btn btn-default">Submit</button>
+		<%end%>
+  </div>
+      </div>
+    </div>
+  </div>
+   
+</div>
+</div>
+</div>
+</div>
+<!--form end-->
+<!--form body start-->
+
+<!-form body end-->
+<!-- form footer start-->

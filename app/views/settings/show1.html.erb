@@ -1,0 +1,37 @@
+<h1>This is setting page for admins</h1>
+
+<ul>
+
+	<h2>Add New Hostel</h2>
+	<%= form_for(:hostel, url: newhostel_path) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      <span>Please enter the name of hostel in plural form i.e himgiris</span>
+
+
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+</ul>
+
+<ul>
+
+
+<h2>Import rooms</h2>
+
+<%= form_tag import_path, multipart: true do %>
+<div class="form-group">
+
+   <select list="hostel_name" name="selected_hostel" class="form-control " required="required"  placeholder="-Hostel-" />
+     <option value="" disaled selected>Select Hostel</option>
+         <%= @hostels.each do |hostel| %>
+          <option value=<%=hostel%>><%=hostel%></option>
+            <% end %>  
+   </select>
+</div>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import",name:import %>
+<% end %>
+
+
+</ul>

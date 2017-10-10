@@ -1,0 +1,128 @@
+<script>
+$(document).ready(function() {
+  <% if !@hos_room.nil?%>
+  <% if @hos_room.length>=5%>
+    $('#add_choice').attr('disabled',true);
+  <% end %>
+  <% end %>
+    $("#hostel_type").change(function() {
+        var val = $(this).val();
+        <% @hostels.each do |hostel| %>
+          if (val == "<%=raw hostel%>") {
+            $("#rooms1").html("<option disabled selected value>-Room- -bed-</option><% @rooms[hostel].each do |room| %><option value=<%=room[0]%>><%=room[0]%>  <%=room[1]%></option><% end %> ");
+        }
+        <%end%>
+        
+    });
+    $('.room_type').on('change', function() {
+      room_no=$(this).val();
+      hostel=$('#hostel_type').val();
+      flag=0;
+
+      <%if !@filled_rooms.nil?%>
+        <% @filled_rooms.each do |filled| %>
+        if (room_no=="<%=raw filled.room_no%>" && hostel=="<%=raw filled.hostel%>"){
+            flag=1;
+            $('.td').html("<%Choice.joins(:room_choices).where(:room_choices=>{room_no:filled.room_no,hostel:filled.hostel}).order(cgpi: 'DESC').each do |border|%><tr><td><%=border.border_roll_no%></td><td><%=border.cgpi%></td><%if !border.room_choices.nil?%><%border.room_choices.each do |room_choice|%><td><%=room_choice.room_no%></td><%end%><%end%></tr><%end%>");
+         
+        }
+        <%end%>
+        if (flag==0){
+          $('.td').html('');
+        }
+
+      <%end %>
+      
+     
+    });
+
+    $('.room_type').on('click', function() {
+        var i = $('.room_type').index(this);
+        var j = i+1;
+        var $options = $(this).find('option');
+        var $tempDiv = $('<div/>');
+        $options = $options.each(function (idx, option) {
+        if (!$(option).prop('selected')) {
+            $tempDiv.append($(option).clone());
+        }
+    });
+    $('.room_type:eq('+j+')').show();
+    $('.room_type:eq('+j+')').html($tempDiv.html());
+    });
+   
+
+});
+</script>
+<!-- navigation bar starts-->
+<!--reapeated code for select roommates.html & studentlogin.html-->
+<nav class="navbar navbar-inverse navbar-static-top nav-set" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#roomnav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+    <a class="navbar-brand" href="#">SELECT YOUR ROOM & ROOMMATES</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right" id="roomnav">
+      <ul class="nav navbar-nav nav-tabs">
+                          
+         <li><%= link_to "Profile",profile_path(current_user.id) %></li>
+         <li><%= link_to "LOGOUT",logout_path ,method: "delete"%></li>
+
+        </ul>
+    </div>
+  </div>
+  
+</nav>
+<!--form section used here
+  <select class="form-control" disabled>
+  <option>hostel1</option>
+  <option>hostel1</option>
+<option>hostel1</option>
+</delect>
+-->
+<!-- navigation bar end-->
+<div class="panel">
+<div class="row set-body-margin jumbotron">
+<!--class="text-justified","text-center,text-right " will used-->
+        <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center ">
+                    <h2 class="panel-title">SELECT ROOMS & ROOMATES</h2>
+                </div>
+
+            <div class="panel-body">
+                  <%= form_for(:room_allotement, url: roomallotement_path) do |f| %>
+                <div class="form-group">
+                  <label for="roommate1" >Student Roommate1</label>
+        
+                  <input type="text" name="roommate1[]" class="form-control" id="studentrollno" placeholder="student roll number" >
+                </div>
+               <div class="form-group">
+                  <label for="roommate2" >Student Roommate2</label>
+        
+                  <input type="text" name="roommate1[]" class="form-control" id="st" placeholder="student roll number">
+                </div>
+                  <div class="text-center">
+                <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+                <%end%>
+
+                <div class='form-group'>
+                  <table class="td">
+                    <tr><td>"hello"</td></tr>
+                  </table>
+                </div>
+                  </div>
+                 
+                </div>
+              
+              
+            </div>
+        </div>
+</div>
+</div>
+</div>
+</div>

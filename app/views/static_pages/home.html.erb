@@ -1,0 +1,111 @@
+
+
+<!-- navigation bar starts-->
+<nav class="navbar navbar-default navbar-static-top nav-set" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#indexnav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+		<a class="navbar-brand" href="#">WELCOME TO HOSTEL ALLOTMENT</a>
+		</div>
+		<div class="collapse navbar-collapse navbar-right " id="indexnav">
+			<ul class="nav navbar-nav nav-tabs">
+  			         <li><a href="#">ABOUT</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CHECKLIST<b class="caret"></b></a>
+            <ul class="dropdown-menu ">
+              <li><%= link_to "1st-year",checklist_path("1")%></li>
+              <li><%= link_to "2nd-year",checklist_path("2")%></li>
+              <li><%= link_to "3rd-year",checklist_path("3")%></li>
+              <li><%= link_to "4th-year",checklist_path("4")%></li>
+            </ul>
+          </li>
+          <% if current_user.nil? %>
+				 <li><%= link_to "ADMIN",adminlogin_path%></li>
+         <%else%>
+         <li><%= link_to "PROFILE",profile_path(current_user.id)%></li>
+         <%end%>
+				</ul>
+		</div>
+	</div>
+	
+</nav>
+<!-- navigation bar end-->
+<!-- body section shuru-->
+<div class="panel">
+<div class="row set-body-margin jumbotron">
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+      <div class="col-md-4 col-sm-4 col-xs-12"><!--class="text-justified","text-center,text-right " will used-->
+        <div class="panel panel-default">
+          <div class="panel-heading text-center ">
+              <h2 class="panel-title">INSTRUCTIONS</h2>
+            </div>
+          <div class="panel-instbody text-justified">
+            <p><!--add instruction here-->
+            
+                </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4  col-sm-4 col-xs-12"> <!--also use col-md-pull-* & col-md-push-* -->  
+         <div class="panel panel-default">
+		        <div class="panel-heading text-center ">
+			         <h2 class="panel-title">STUDENT LOGIN FORM </h2>
+		        </div>
+            <div class="panel-body">
+            <%= form_for(:session, url: login_path) do |f| %>
+         	
+           			 <div class="form-group">
+              				<label for="rollno">Roll No</label>
+                      
+                      <%= f.text_field :roll_no, class: 'form-control',placeholder:"UserId" , id:'rollno'%>
+                      
+              				
+            			</div>
+            			<div class="form-group">
+              				<label for="exampleInputPassword1">Password</label>
+                      <%= f.password_field :password, class: 'form-control',id: 'exampleInputPassword1',placeholder:"Password"%>
+            			</div>
+            			<% if current_user.nil? %>
+            			<button type="submit" class="btn btn-default">Submit</button>
+		              
+                  <% else %>
+                    <button type="submit" class="btn btn-default" disabled>Submit</button>
+                    <% end %>
+                <% end%>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-4  col-sm-4 col-xs-12">
+           <div class="panel panel-default">
+                      <div class="panel-heading text-center"><h3 class="panel-title">HOSTELS MAP</h3></div>
+                        <div class="panel-body ">
+                            <div class="list-group">
+                              <a href="#" class="list-group-item ">Himgiri hostel
+                              </a>
+                              <a href="#" class="list-group-item">himadri  hostel
+                              </a>
+                              <a href="#" class="list-group-item">Neelkanth Hostel
+                              </a>
+                              <a href="#" class="list-group-item ">Daluadar hostel
+                              </a>
+                              <a href="#" class="list-group-item">Neelkanth hostel
+                              </a>
+                              <a href="#" class="list-group-item">Vidyachal hostel
+                              </a>
+                            </div>
+                        </div>
+                      </div>
+          </div>
+      </div>
+</div>
+</div>
+<!-- body section end-->
+
+
+

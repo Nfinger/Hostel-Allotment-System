@@ -1,0 +1,83 @@
+  <nav class="navbar navbar-default navbar-static-top nav-set " role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#indexnav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+    <a class="navbar-brand" href="#">ADMIN INTERFACE</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right " id="indexnav">
+      <ul class="nav navbar-nav nav-tabs">
+         <li><%= link_to "PROFILE",adminprofile_path(current_admin.id)%></li>                           
+         <li><%= link_to "LOGOUT",adminlogout_path ,method: "delete"%></li>  
+        </ul>
+    </div>
+  </div>
+  </div>
+</nav> 
+<div class="panel set-margin">
+
+<div class="row set-body-margin jumbotron">
+    <%= render 'shared/flash'%>
+      <div class="col-md-6 col-md-offset-3 col-sm-6 col-md-offset-3 col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center ">
+              <h2 class="panel-title">ADD NEW HOSTEL</h2>
+          </div>
+          <div class="panel-body text-center">
+            <%= form_for(:hostel, url: newhostel_path) do |f| %>
+              <div class="form-group">
+                 <%= f.label :"Enter the new hostel name in singular form" %>
+                <%= f.text_field :name, class: 'form-control',id:"examplehostel",placeholder:"enter new hostel name" %>
+              </div>
+              <div class="form-group">
+              <button type="submit" class="btn btn-md btn-default">ADD HOSTEL</button>
+            </div>
+            <%end%>
+            </div>
+            <!-- uploading rooms for hostels -->
+            <div class="panel-heading text-center ">
+              <h2 class="panel-title">IMPORT ROOMS</h2>
+          </div>
+          <div class="panel-body text-center">
+            <%= form_tag import_path, multipart: true do %>
+              <div class="form-group">
+                <select list="hostel_name" name="selected_hostel" class="form-control " required="required"  placeholder="-Hostel-" />
+                  <option value="" disaled selected>Select Hostel</option>
+                  <%= @hostels.each do |hostel| %>
+                    <option value=<%=hostel%>><%=hostel%></option>
+                   <% end %>  
+                </select>
+            </div>
+            <div class="form-group">
+              <%= file_field_tag :file,id:'fileupload' %>
+              <%= submit_tag "IMPORT ROOMS", class:"btn btn-default " %>
+            </div>
+            <% end %>
+            
+          </div>
+          <div class="panel-heading text-center ">
+              <h2 class="panel-title">IMPORT RESULT</h2>
+          </div>
+          <div class="panel-body text-center">
+            <%= form_tag import_student_result_path, multipart: true do %>
+            <div class="form-group">
+              <%= file_field_tag :file,id:'fileupload' %>
+              <%= submit_tag "IMPORT RESULT", class:"btn btn-default " %>
+            </div>
+            <% end %>
+            
+          </div>
+          <div class="panel-heading text-center ">
+              <h2 class="panel-title">CREATE PROFILE</h2>
+          </div>
+          <div class="panel-body text-center">
+            <%= link_to "CREATE PROFILE OF NEW STUDENTS", create_profile_path(format: :xlsx),method: :post,class:"btn btn-default"%>
+            
+          </div>
+        </div>
+        </div>
+      </div>
+</div>

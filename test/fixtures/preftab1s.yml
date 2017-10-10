@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  roll_no: MyString
+  cgpi: 1.5
+  roomie1: MyString
+  roomie2: MyString
+  room1: MyString
+  room2: MyString
+
+two:
+  roll_no: MyString
+  cgpi: 1.5
+  roomie1: MyString
+  roomie2: MyString
+  room1: MyString
+  room2: MyString

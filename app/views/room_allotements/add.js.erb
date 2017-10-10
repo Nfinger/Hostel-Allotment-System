@@ -1,0 +1,9 @@
+
+<% if @flag==1 %>
+	$("#room_choice").html("<%@hos_room.each do |room|%><option value=<%=room[0]%>><%=room[1]%>  <%=room[2]%></option><%end%>");
+	<% if @hos_room.length>=5 %>
+		$('#add_choice').attr('disabled',true);
+	<%end %>
+<% else %>
+	alert("Choice is added already")
+<% end %>

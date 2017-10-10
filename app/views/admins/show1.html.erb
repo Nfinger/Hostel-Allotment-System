@@ -1,0 +1,37 @@
+<%= @user.name %>
+<%= link_to "logout",adminlogout_path ,method: "delete"%>
+<%= link_to "Himgiri",borderslist_path("Himgiri")%>
+<%= link_to "Himadri",borderslist_path("Himadri") %>
+<%= link_to "Neelkanth",borderslist_path("Neelkanth")%>
+
+<%= link_to "Set New Room Allotement",newallotement_path%>
+<%= link_to "Start New Room Allotement",setdatetime_path%>
+
+<div class="container">
+  <h1> generate preference list</h1>
+  <%= form_for(:preference, url: generate_path) do |f| %>
+  <div>
+    <h2>Select year</h2>
+    <input type="checkbox" name="year" value="1"> 1st year<br>
+    <input type="checkbox" name="year" value="2"> 2nd year<br>
+    <input type="checkbox" name="year" value="3"> 3rd year<br>
+  </div>
+  <div>
+    <h2>Select hostel1</h2>
+    <input type="checkbox" name="hostel1[]" value="Himgiri"> Himgiri<br>
+    <input type="checkbox" name="hostel1[]" value="Himadri"> Himadri<br>
+    <input type="checkbox" name="hostel1[]" value="Neelkanth"> Neelkanth<br>
+  </div>
+  <div>
+    <h2>select hostel2</h2>
+    <input type="checkbox" name="hostel2[]" value="Himgiri"> Himgiri<br>
+    <input type="checkbox" name="hostel2[]" value="Himadri"> Himadri<br>
+    <input type="checkbox" name="hostel2[]" value="Neelkanth"> Neelkanth<br>
+  </div>
+  <input type="submit" value="Submit">
+    
+    <% end %>
+
+</div>
+
+ 

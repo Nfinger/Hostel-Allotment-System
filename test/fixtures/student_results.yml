@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rollno: MyString
+  sgpi: 1.5
+  cgpi: 1.5
+  semester: MyString
+
+two:
+  rollno: MyString
+  sgpi: 1.5
+  cgpi: 1.5
+  semester: MyString

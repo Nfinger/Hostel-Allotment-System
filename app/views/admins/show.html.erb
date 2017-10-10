@@ -1,0 +1,303 @@
+<script>
+$(document).ready(function() {
+
+    $("#hostel_type").change(function() {
+        var val = $(this).val();
+        <% @hostels.each do |hostel| %>
+          if (val == "<%=raw hostel%>") {
+           $(".multiselect").html("<%@floors[hostel].each do |floor|%><label><span class'input-group-adddon'><input type='checkbox' name='floors[]' value='<%=floor%>' class='floor_type' id=<%=floor%> /></span><input type='text' size='10' placeholder='<%=floor%>'-floor disabled/></label><%end%>");
+        }
+        <%end%>
+        $(".multiselect1").html('');
+    });
+ 
+    $(document).on('click','.floor_type',function() {
+        var val = $(this).attr('id');
+        var val1=$('#'+val).val();
+        var val2=$("#hostel_type").val();
+        var ischecked= $('#'+val).is(':checked');
+        if (ischecked){
+         
+        <% @hostels.each do |hostel| %>
+        if (val2=="<%= raw hostel%>"){
+          <%@floors[hostel].each do |floor|%>
+          if(val1=="<%= raw floor%>"){
+        $(".multiselect1").append("<div class='row'><div class='col-md-7 col-md-offset-4'><label class='<%=floor%>'><input type='text' size='15' placeholder='<%= floor%>'-floor-rooms disabled/></label></div></div><div class='row'><div class='col-md-10 col-md-offset-1 '><%@rooms[hostel][floor].each do |room|%><label class='<%=floor%>'><span class'input-group-adddon'><input type='checkbox' name='rooms[]' value=<%=room%> checked/></span><input type='text' size='5' placeholder=<%=room%> disabled/></label><%end%></div> </div>");
+        
+        }
+
+        <%end%>
+        }
+
+        <%end%>
+      }
+      else
+      {
+          $("."+val1).remove();
+      }
+      
+        
+          
+           
+        
+        
+    });
+
+    jQuery.fn.multiselect = function() {
+    $(this).each(function() {
+        var checkboxes = $(this).find("input:checkbox");
+        checkboxes.each(function() {
+            var checkbox = $(this);
+            // Highlight pre-selected checkboxes
+            if (checkbox.prop("checked"))
+                checkbox.parent().addClass("multiselect-on");
+ 
+            // Highlight checkboxes that the user selects
+            checkbox.click(function() {
+                if (checkbox.prop("checked"))
+                    checkbox.parent().addClass("multiselect-on");
+                else
+                    checkbox.parent().removeClass("multiselect-on");
+            });
+        });
+    });
+};
+
+$(function() {
+     $(".multiselect").multiselect();
+});
+jQuery.fn.multiselect1 = function() {
+    $(this).each(function() {
+        var checkboxes = $(this).find("input:checkbox");
+        checkboxes.each(function() {
+            var checkbox = $(this);
+            // Highlight pre-selected checkboxes
+            if (checkbox.prop("checked"))
+                checkbox.parent().addClass("multiselect-on");
+ 
+            // Highlight checkboxes that the user selects
+            checkbox.click(function() {
+                if (checkbox.prop("checked"))
+                    checkbox.parent().addClass("multiselect-on");
+                else
+                    checkbox.parent().removeClass("multiselect-on");
+            });
+        });
+    });
+};
+
+$(function() {
+     $(".multiselect1").multiselect();
+});
+  });
+</script>
+
+
+
+
+<style>
+.multiselect label
+{
+  float:left;
+}
+.multiselect1 label
+{
+  float:left;
+}
+.background-colorp
+{
+
+  background: #808B96 ;
+  
+   border-style: solid;
+   border-color: #17202A;
+   border-width: 2px;
+   
+}
+.hfloor
+{
+  height:100px;
+}
+.hroom
+{
+   height:300px;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: scroll;
+}
+
+</style>
+<!-- .multiselect {
+    width:20em;
+    height:15em;
+    border:solid 1px #c0c0c0;
+    overflow:auto;
+}
+ 
+.multiselect label {
+    display:block;
+}
+ 
+.multiselect-on {
+    color:#ffffff;
+    background-color:#000099;
+}
+.multiselect1 {
+    width:20em;
+    height:15em;
+    border:solid 1px #c0c0c0;
+    overflow:auto;
+}
+ 
+
+.multiselect1-on {
+    color:#ffffff;
+    background-color:#000099;
+}
+</style>-->
+ <!--navigation bar starts-->
+  <nav class="navbar navbar-default navbar-static-top nav-set" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#indexnav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+    <a class="navbar-brand" href="#">ADMIN INTERFACE</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right " id="indexnav">
+      <ul class="nav navbar-nav nav-tabs">
+        <li><li><%= link_to "PROFILE",adminprofile_path(current_admin.id)%></li>
+        <li><%= link_to "ADD HOSTEL",setting_path%></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CHECKLIST<b class="caret"></b></a>
+            <ul class="dropdown-menu ">
+              <li><%= link_to "1st-year",checklist_path("1")%></li>
+              <li><%= link_to "2nd-year",checklist_path("2")%></li>
+              <li><%= link_to "3rd-year",checklist_path("3")%></li>
+              <li><%= link_to "4th-year",checklist_path("4")%></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">SELECT HOSTEL<b class="caret"></b></a>
+            <ul class="dropdown-menu ">
+              <% @hostels.each do |hostel|%>
+                <li><%= link_to hostel,borderslist_path(hostel)%></li>
+                <% end %>
+            </ul>
+          </li>
+          <li><%= link_to "LOGOUT",adminlogout_path ,method: "delete"%></li>                       
+        </ul>
+    </div>
+  </div>
+  </div>
+</nav> 
+<div class="set-margin">
+<div class="panel">
+<div class="row set-body-margin jumbotron">
+  <%= render 'shared/flash'%>
+<!--class="text-justified","text-center,text-right " will used-->
+        <div class="col-md-7 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center ">
+                  <h2 class="panel-title">SET NEW ALLOTMENT</h2>
+                </div>
+              <div class="panel-body text-center">
+                <%= form_for(:preference, url: generate_path, class: 'form-inline') do |f| %>
+                  <div class="row">
+                    <div class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-12">
+                      <div class="form-group">
+                         <label for="select-year">SELECT YEAR</label>
+
+                             <select list="year" name="year" class="form-control " required="required"  placeholder="select-year" />
+                              <option disabled selected value>-select-year-</option>
+                              <option value="1">1st-year
+                              <option value="2">2nd-year
+                              <option value="3">3rd-year
+                              <option value="4">4th-year
+                            </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-12">
+                      <div class="form-group">
+                        <label for="rollno">SELECT HOSTEL</label>
+                          <select list="hostel-name" name="hostel2" class="form-control " required="required"  placeholder="select-hostel" id="hostel_type" />
+                          <option disabled selected value >-select-hostel-</option>
+                            <% @hostels.each do |hostel| %>
+                              <option value=<%=hostel%>><%=hostel%>
+                            <%end%>
+                            </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10  col-sm-4 col-sm-offset-1 col-xs-12">
+
+                      <div class="form-group">
+                        <label for="rollno">SELECT FLOOR</label>
+                        <div class="panel panel-body background-colorp hfloor">
+                            
+                              <div class="input-group">
+                              <div class="multiselect black-color">
+                              </div>
+                            
+                            </div>
+                    
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10  col-sm-4 col-sm-offset-1 col-xs-12">
+
+                      <div class="form-group">
+                        <label for="rollno">SELECT ROOMS</label>
+                        <div class="panel panel-body background-colorp hroom">
+                            
+                              
+                              <div class="multiselect1 black-color">
+                              </div>
+                            
+                            
+                    
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class="form-group ">
+                        <label for="starttime">START TIME</label>
+                        <div class="black-color">
+                            <%= f.datetime_select :StartTime,class:"form-control "%>
+                        </div>
+                  </div>
+                  <div class="form-group">
+                        <label for="endtime">END TIME</label>
+                        <div class="black-color">
+                          <%= f.datetime_select :EndTime,class:"form-control"%></div>
+                  </div>
+                  <div class="form-group">
+                            <button type="submit" class="btn btn-default btn-block">SUBMIT</button>
+                  </div>
+                <%end%>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-md-offset-1  col-sm-3 col-sm-offset-2 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center ">
+              <h2 class="panel-title">IMPORTANT LINKS</h2>
+
+            </div>
+            <div class="panel-body text-center">
+            <!-- enter your link here-->
+            <%= link_to "Allot Rooms",allotement_path,data: { confirm: 'Are you sure?' }%>
+            </div>
+            <div class="panel-body text-center">
+            <%= link_to "Start New Allotment",newallotement_path,data: { confirm: 'This will start new allotement. Are you sure to continue?' }%>
+          </div>
+          </div>
+        </div>
+    </div>
+</div>
+</div>

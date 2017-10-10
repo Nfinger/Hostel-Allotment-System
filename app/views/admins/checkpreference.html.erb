@@ -1,0 +1,25 @@
+
+
+<div class="set-margin">
+<div class="panel">
+<div class="row set-body-margin jumbotron text-center">
+    <h2 class="header"></h2>
+    <div class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+        <ul>
+        	<%@students.each do |student| %>
+				<%=student.roll_no%>
+				<%=student.cgpi%>
+				<%=student.roomie1%>
+				<%=student.roomie2%>
+				<%=student.room1%>
+				<%=student.room2%><br>
+			<%end%>
+        </ul>
+        <li><%= link_to "allote",allotement_path%></li>
+      </div>
+      </div>
+</div>
+</div>
+</div>
+</div>

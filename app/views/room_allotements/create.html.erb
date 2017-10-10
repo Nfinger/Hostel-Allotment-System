@@ -1,0 +1,47 @@
+<nav class="navbar navbar-default navbar-static-top nav-set" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#indexnav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+    <a class="navbar-brand" href="#">ADMIN INTERFACE</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right " id="indexnav">
+      <ul class="nav navbar-nav nav-tabs">
+                <li><%= link_to "Profile",profile_path(current_user.id)%></li>
+                <li><%= link_to "Logout",logout_path,method:"delete"%></li>              
+        </ul>
+    </div>
+  </div>
+  </div>
+</nav> 
+<div class="set-margin">
+<div class="panel">
+<div class="row set-body-margin jumbotron text-center">
+    <h2 class="header">Welcome</h2><hr>
+    <div class="row">
+          <div class="col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <dl class= "dl-horizontal">
+             <dt><h4>HOSTEL</h4></dt>
+             <% @choice.room_choices.each do |room|%>
+             <dd><h4><%=room.hostel%><%=room.room_no%></h4></dd>
+             <%end%>
+             <dt><h4>ROOM NO.</h4></dt>
+             <dd><h4><%=@selected_room%></h4></dd>
+             <dt><h4>ROLL NO.</h4></dt>
+             <dd><h4><%=@choice.border_roll_no%></h4></dd>
+             <dt><h4>ROOMMATES</h4></dt>
+            <dd> <%@choice.roommates.each do |room_mate1| %>
+             <h4> <%=room_mate1.roommate%></h4>
+                 <%end%></dd>
+                <hr>
+            </dl>
+            <h4>
+
+      </div>
+      </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,108 @@
+﻿@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/*header section*/
+.black-color
+{
+    color: black;
+}
+.header-top-margin
+{
+    margin-top:10px;
+}
+.footer-bottom-margin
+{
+    margin-bottom:10px;
+}
+
+.list-group-item { 
+    margin: 0; 
+    width: 100%;
+ }
+.footer-set
+{
+    margin-top:-50px;
+    margin-bottom:10px;
+}
+.nav-set
+{
+    margin-top:-30px;
+    margin-bottom:10px;
+}
+
+.no-padding
+{
+    padding: 0px;
+}
+.head-h1-padding
+{
+    padding-top: 20px;
+    padding-left: 400px;
+}
+.logo-height-widths
+{
+    height: 150px;
+    width: 150px;
+}  
+.set-margin
+{
+    margin-left: -60px;
+    margin-right: -60px;
+}
+.set-body-margin
+{
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.site-footer
+{
+    background-color: #17202A;
+    color:#fff;
+    margin-top: -40px;
+
+}
+.bottom-footer
+{
+   
+    padding-top: 10px;
+    color:#b2b2b2;
+    padding-bottom: 10px;
+}
+.panel > .panel-heading {
+    background-color: #17202A;
+    color: white;
+
+}
+.panel > .panel-body {
+    background-color: #808B96;
+    color: white;
+}
+.panel > .panel-instbody
+{ 
+    background-color: #808B96;
+    color: white;
+    overflow: scroll;
+}
+.navbar-default
+{
+      background-color:#17202A ;
+      color:white;
+}
+.panel > .admin-panel1
+{
+    text-decoration: none;
+    background-color: #808B96;
+    color:#fff;
+}
+a:link, a:visited {
+    color:#17202A ;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+.fixed-height
+{
+    height:570px;
+    overflow-y:scroll;
+}

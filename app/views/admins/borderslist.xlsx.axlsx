@@ -1,0 +1,9 @@
+list_of_student = xlsx_package.workbook
+list_of_student.add_worksheet(name: @hostel) do |sheet|
+	sheet.add_row ['Room No','Name','Roll No','Email','Phone No','Parent Phone No','Address'] ,:types => [:string]
+	@rooms.each do |room|
+		room.borders.each do |border|
+    		sheet.add_row [room.room_no,border.name,border.roll_no,border.email,border.phone_no,border.parent_phone_no,border.address]
+    	end
+  	end
+end

@@ -1,0 +1,166 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>FORM</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/flexslider.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
+</head>
+
+<style type="text/css">
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: white;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}    
+</style>
+
+<body >
+
+<div>
+   <ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="checkList.html">CheckList</a></li>
+  <li class="dropdown">
+    <a href="" class="dropbtn">Account</a>
+    <div class="dropdown-content">
+      <a href="#">MyProfile</a>
+      <a href="#">Settings</a>
+      <a href="#">Logout</a>
+    </div>
+  </li>
+</ul> 
+
+</div>
+
+            <div class="row text-center">
+                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                     <h1 data-scroll-reveal="enter from the bottom after 0.1s" class="header-line" >STUDENT DETAILS</h1>
+                 </div>
+            </div>
+
+            <div class="row set-row-pad"  data-scroll-reveal="enter from the bottom after 0.5s" >
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                    
+                    <form>
+                    
+                        <div class="form-group">
+                            <input type="text" class="form-control "  required="required" placeholder="Your Name" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control "  required="required" placeholder="Your Roll Number" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control " required="required"  placeholder="Your Email" />
+                        </div>
+
+            <div class="row text-center">
+                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                         <h1 data-scroll-reveal="enter from the bottom after 0.1s" class="header-line" >HOSTEL DETAILS</h1>
+                 </div>
+            </div>
+
+                        <div class="form-group">
+                            <h4 align="center">KBH </h4><input type="radio" name="hostel" class="form-control " required="required"  value="KBH" >
+                            <h4 align="center">Himadri </h4><input type="radio" name="hostel" class="form-control " required="required"  value="Himadri" >
+                            <h4 align="center">Himgiri </h4><input type="radio" name="hostel" class="form-control " required="required"  value="Himgiri" >
+                        </div></br>
+
+                        <div class="form-group">
+                            <select list="room-numbers" name="room-numbers" class="form-control " required="required"  placeholder="-Room-" />
+                            
+                              <option value="101">-Room-
+                              <option value="102">101
+                              <option value="201">102
+                              <option value="202">201
+                              <option value="301">202
+                            
+                            </select>
+                        </div>
+
+
+
+
+
+            <div class="row text-center">
+                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                         <h1 data-scroll-reveal="enter from the bottom after 0.1s" class="header-line" >ROOMATE DETAILS</h1>
+                 </div>
+            </div>     
+
+                        <div class="form-group">
+                            <input type="text" class="form-control " required="required"  placeholder="Roomate 1" />
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control " required="required"  placeholder="Roomate 2" />
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info btn-block btn-lg">SUBMIT</button>
+                        </div>
+
+                    </form>
+            </div>
+            </div>
+
+
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/jquery.flexslider.js"></script>
+    <script src="assets/js/scrollReveal.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+</body>
+</html>

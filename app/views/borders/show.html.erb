@@ -1,0 +1,63 @@
+<nav class="navbar navbar-default navbar-static-top nav-set" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#indexnav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+        <a class="navbar-brand" href="#">STUDENT HOMEPAGE</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right " id="indexnav">
+            <ul class="nav navbar-nav nav-tabs">
+                 <li><%= link_to "PROFILE",profile_path(current_user.id) %></li>
+                <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CHECKLIST<b class="caret"></b></a>
+            <ul class="dropdown-menu ">
+              <li><%= link_to "1st-year",checklist_path("1")%></li>
+              <li><%= link_to "2nd-year",checklist_path("2")%></li>
+              <li><%= link_to "3rd-year",checklist_path("3")%></li>
+              <li><%= link_to "4th-year",checklist_path("4")%></li>
+            </ul>
+          </li>
+                <li><%= link_to "UPDATE PROFILE",edit_path(current_user.id)%></li>
+                <li><%= link_to "LOGOUT",logout_path ,method: "delete"%></li>
+                </ul>
+        </div>
+    </div>
+    
+</nav>
+<div class="panel">
+<div class="row set-body-margin jumbotron text-center">
+    <h2 class="header">WELCOME <%= @user.name%> </h2><hr>
+    <div class="row">
+          <div class="col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <dl class= "dl-horizontal">
+          <dt><h4>ROLLNO</h4></dt>
+          <dd><h4><%= @user.roll_no%></h4></dd>
+          <dt><h4>NAME</h4></dt>
+          <dd><h4><%= @user.name %></h4></dd>
+          <hr>
+        </dl>
+      </div>
+      <%if  !@hostel.nil? %>
+         
+            <%if current_user.alloted? %>
+                  <button class="btn btn-info disabled">ROOM ALREADY ALLOTTED</button>
+            <% else %>
+                <% if @active %>
+                    <% if current_user.grouped%>
+                       <%= link_to "you are grouped click to ungroup",ungroup_path,class: "btn btn-primary", method: "post"%>
+                      <%else%>
+                      <%= link_to "proceed for room allotment",roomallotement_path,class: "btn btn-primary" %>
+                    <%end%>
+                <%end%>
+            <% end %>
+            
+        <% else %>
+            <button class="btn btn-info disabled">ALLOTMENT IS NOT STARTED</button>
+        <% end %>
+      </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,2 @@
+class AlloteHostel < ApplicationRecord
+end

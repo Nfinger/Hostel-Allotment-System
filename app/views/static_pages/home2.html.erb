@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>NITH HOSTEL ALLOTMENT</title>
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+</head>
+<body >
+   
+ <div class="navbar navbar-inverse navbar-fixed-top " id="menu">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img class="logo-custom" src="" alt=""  /></a>
+            </div>
+            <div class="navbar-collapse collapse move-me">
+                <ul class="nav navbar-nav navbar-right">
+                     <li><a href="#features-sec">LOGIN</a></li>
+                     <li><%= link_to "ADMIN LOGIN",adminlogin_path%></li>
+                     
+                </ul>
+            </div>
+           
+        </div>
+    </div>
+      <!--NAVBAR SECTION END-->
+       <div class="home-sec" id="home" >
+           <div class="overlay">
+ <div class="container">
+           <div class="row text-center " >
+           
+               <div class="col-lg-12  col-md-12 col-sm-12">
+               
+                <div class="flexslider set-flexi" id="main-section" >
+                    <ul class="slides move-me">
+                        <!-- Slider 01 -->
+                        <li>
+                              
+                           <h1>NITH HOSTEL ALLOTMENT</h1>
+                           
+                            <a  href="#features-sec" class="btn btn-info btn-block btn-lg" >
+                                LOGIN
+                            </a>
+                             
+                        </li>
+                        <!-- End Slider 01 -->
+                        
+                    </ul>
+                </div>
+                   
+     
+              
+              
+            </div>
+                
+               </div>
+                </div>
+           </div>
+           
+       </div>
+       <!--HOME SECTION END-->   
+    <div  class="tag-line" >
+         <div class="container">
+           <div class="row  text-center" >
+           
+               <div class="col-lg-12  col-md-12 col-sm-12">
+               
+        <h2 data-scroll-reveal="enter from the bottom after 0.1s" ><i class="fa fa-circle-o-notch"></i> WELCOME TO THE NITH HOSTEL ALLOTMENT <i class="fa fa-circle-o-notch"></i> </h2>
+                   </div>
+               </div>
+             </div>
+        
+    </div>
+    <!--HOME SECTION TAG LINE END-->   
+         <div id="features-sec" class="container set-pad" >
+             <div class="row text-center">
+                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                     <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">ALLOTMENT CRITERIA INFORMATION</h1>
+                     <p data-scroll-reveal="enter from the bottom after 0.3s" >
+                      How the Students would be alloted the following room and the eligibility.
+                         </p>
+                 </div>
+
+             </div>
+             <!--/.HEADER LINE END-->
+
+
+           
+   
+    <!-- FACULTY SECTION END-->
+      
+      <!-- COURSES SECTION END-->
+    <div id="contact-sec"   >
+           <div class="overlay">
+ <div class="container set-pad">
+      <div class="row text-center">
+                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                     <h1 data-scroll-reveal="enter from the bottom after 0.1s" class="header-line" >LOGIN FORM</h1>
+                     <p data-scroll-reveal="enter from the bottom after 0.3s">
+                      Enter your credentials as provided by the admin.</br>
+                      Enter your UserId and Password to Step Forward.
+                         </p>
+                 </div>
+
+             </div>
+             <!--/.HEADER LINE END-->
+           <div class="row set-row-pad"  data-scroll-reveal="enter from the bottom after 0.5s" >
+           
+               
+                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                    <%= form_for(:session, url: login_path) do |f| %>
+                        <div class="form-group">
+                            <%= f.text_field :roll_no, class: 'form-control',placeholder:"UserId" %>
+                        </div>
+                        <div class="form-group">
+                          <%= f.password_field :password, class: 'form-control',placeholder:"Password"%>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info btn-block btn-lg" onclick="window.location.href='form.html'">LOGIN</button>
+                        </div>
+
+                    <% end %>
+                </div>
+
+               </div>
+                </div>
+          </div> 
+       </div>
+   
+    <!--  Jquery Core Script -->
+    
+</body>
+</html>

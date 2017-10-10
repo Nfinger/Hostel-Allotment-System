@@ -1,0 +1,7 @@
+list_of_student = xlsx_package.workbook
+list_of_student.add_worksheet(name: "password") do |sheet|
+	
+	@password.keys.each do |roll_no|
+    		sheet.add_row [roll_no,@password[roll_no]]
+    	end
+end

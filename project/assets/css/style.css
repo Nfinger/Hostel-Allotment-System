@@ -1,0 +1,75 @@
+/*header section*/
+.no-margin
+{
+	margin:0px;
+}
+.no-padding
+{
+	padding: 0px;
+}
+.head-h1-padding
+{
+	padding-top: 20px;
+	padding-left: 400px;
+}
+.logo-height-width
+{
+	height: 150px;
+	width: 150px;
+}
+.set-margin
+{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.set-body-margin
+{
+	margin-left: 1px;
+	margin-right: 1px;
+}
+.site-footer
+{
+	background-color: #17202A;
+	color:#fff;
+	margin-top: -30px;
+
+}
+.bottom-footer
+{
+	margin-top:10px;
+	padding-top: 10px;
+	color:#b2b2b2;
+	padding-bottom: 10px;
+}
+.panel > .panel-heading {
+    background-color: #17202A;
+    color: white;
+
+}
+.panel > .panel-body {
+    background-color: #808B96;
+    color: white;
+}
+.panel > .panel-instbody
+{ 
+	background-color: #808B96;
+    color: white;
+	overflow: scroll;
+}
+.navbar-default
+{
+	  background-color:#17202A ;
+	  color:white;
+}
+.panel > .admin-panel1
+{
+	text-decoration: none;
+	background-color: #808B96;
+	color:#fff;
+}
+a:link, a:visited {
+    color:#17202A ;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
